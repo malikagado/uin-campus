@@ -1,123 +1,126 @@
+#include "uincampus/calculs.hpp"
 #include "uincampus/regles.hpp"
 #include "uincampus/saisie.hpp"
 #include "uincampus/version.hpp"
 
 #include <algorithm>
-#include <array>
-#include <cmath>
 #include <format>
-#include <iostream>
 #include <print>
-#include <sstream>
-#include <string>
 #include <string_view>
 #include <vector>
-
-// ---------------1. Constantes et enumeration ---------------
-
-enum class Mention { Ajourne, Passable, AssezBien, Bien, TresBien };
-constexpr std::size_t nbMentions = 5;
-constexpr double noteMin = 0.0;
-constexpr double noteMax = 20.0;
-constexpr double seuilValidation = 10.0;
-
-// ------------------- 2. Mentions -------------------
-
-Mention mentionPour(double note)
+// lireEntier et lireNote du chapitre 3, placées ici ou incluses
+using  uin::lireEntier;
+using  uin::lireNote;
+namespace carnet {
+enum class Ordre { Croissant, Decroissant };
+struct Statistiques {
+double minimum{};
+double maximum{};
+double moyenne{};
+int nbValidees{};
+};
+// ---------- Calculs : aucune entrée-sortie ----------
+/// @pre notes n'est pas vide
+[[nodiscard]] Statistiques calculerStatistiques(const std::vector<double>& notes)
 {
-if (note < seuilValidation) { return Mention::Ajourne; }
-if (note < 12.0){ return Mention::Passable; }
-if (note < 14.0){ return Mention::AssezBien; }
-if (note < 16.0){ return Mention::Bien; }
-return Mention::TresBien;
+const auto [mini, maxi] = std::ranges::minmax(notes);
+double somme{0.0};
+int validees{0};
+for (double n : notes) {
+somme += n;
+if (n >= 10.0) {
+++validees;
 }
-std::string_view libelle(Mention m)
+}
+return {mini, maxi, somme / static_cast<double>(notes.size()), validees};
+}
+void appliquerBonus(std::vector<double>& notes, double bonus)
 {
-using enum Mention;
-switch (m) {
-case Ajourne:return "Ajourne";
-case Passable:return "Passable";
-case AssezBien: return "Assez bien";
-case Bien:return "Bien";
-case TresBien:return "Tres bien";
+std::ranges::for_each(notes, [bonus](double& n) { n = std::clamp(n + bonus, 0.0,
+20.0); });
 }
-return "Inconnue";
-}
-//----------------- 3. Saisie robuste -----------------------
-
-double lireNote(std::string_view invite)
+void trier(std::vector<double>& notes, Ordre ordre)
 {
-while (true) {
-std::cout << invite;
-std::string ligne;
-if (!std::getline(std::cin, ligne)) {
-return noteMin;
-}
-for (char& c : ligne) {
-if (c == ',') { c = '.'; }        // accepter la virgule decimale
-}
-std::istringstream flux{ligne};
-double note{};
-char reste{};
-if (!(flux >> note) || (flux >> reste)) {
-std::cout << "Saisie invalide.\n";
-} else if (note < noteMin || note > noteMax) {
-std::cout << "La note doit être comprise entre 0 et 20.\n";
+if (ordre == Ordre::Croissant) {
+std::ranges::sort(notes);
 } else {
-return note;
+std::ranges::sort(notes, [](double a, double b) { return a > b; });
 }
 }
+// ---------- Interface utilisateur ----------
+void afficherNotes(const std::vector<double>& notes)
+{
+if (notes.empty()) {
+std::println("Aucune note.");
+return;
 }
-
-//------------------------ 4.Programme Principal -----------------------
-
+for (std::size_t i{0}; i < notes.size(); ++i) {
+std::println("{:>3}. {:6.2f}", i + 1, notes[i]);
+}
+}
+void ajouter(std::vector<double>& notes)
+{
+notes.push_back(lireNote("Note à ajouter : "));
+}
+void modifier(std::vector<double>& notes)
+{
+if (notes.empty()) {
+std::println("Aucune note à modifier.");
+return;
+}
+afficherNotes(notes);
+const int rang = lireEntier("Numéro de la note : ", 1, static_cast<int>(notes.size()));
+notes[static_cast<std::size_t>(rang - 1)] = lireNote("Nouvelle valeur : ");
+}
+void supprimer(std::vector<double>& notes)
+{
+if (notes.empty()) {
+std::println("Aucune note à supprimer.");
+return;
+}
+afficherNotes(notes);
+const int rang = lireEntier("Numéro de la note : ", 1, static_cast<int>(notes.size()));
+notes.erase(notes.begin() + (rang - 1));
+}
+void afficherStatistiques(const std::vector<double>& notes)
+{
+if (notes.empty()) {
+std::println("Aucune note.");
+return;
+}
+const auto [mini, maxi, moyenne, validees] = calculerStatistiques(notes);
+std::println("Min {:.2f} | Max {:.2f} | Moyenne {:.2f} | Validées {}/{}",
+mini, maxi, moyenne, validees, notes.size());
+}
+[[nodiscard]] int afficherMenu()
+{
+std::println("\n=== Carnet de notes ===");
+std::println("1. Ajouter une note\n2. Afficher les notes\n3. Modifier une note");
+std::println("4. Supprimer une note\n5. Trier les notes\n6. Statistiques");
+std::println("7. Appliquer un bonus\n0. Quitter");
+return lireEntier("Votre choix : ", 0, 7);
+}
+} // namespace carnet
 int main()
 {
-std::cout << "Nom de l'UE : ";
-std::string ue;
-std::getline(std::cin, ue);
-const int nb = uin::lireEntier("Nombre d'étudiants (1 à 200) : ", 1, 200);
-// exercice 6
 std::vector<double> notes;
-for (int i{1}; i <= nb; ++i) {
-notes.push_back(lireNote(std::format("Note de l'étudiant {} : ", i)));
+int choix{};
+do {
+choix = carnet::afficherMenu();
+switch (choix) {
+case 1: carnet::ajouter(notes); break;
+case 2: carnet::afficherNotes(notes); break;
+case 3: carnet::modifier(notes); break;
+case 4: carnet::supprimer(notes); break;
+case 5: {
+const int sens = lireEntier("1. Croissant 2. Décroissant : ", 1, 2);
+carnet::trier(notes, sens == 1 ? carnet::Ordre::Croissant :
+carnet::Ordre::Decroissant);
+break;
 }
-
-// ---------------------- 5. Calculs -----------------------
-
-double minimum{noteMax};
-double maximum{noteMin};
-double somme{0.0};
-int admis{0};
-std::array<int, nbMentions> repartition{};
-for (double n : notes) {
-minimum = std::min(minimum, n);
-maximum = std::max(maximum, n);
-somme += n;
-if (n >= seuilValidation) { ++admis; }
-++repartition[static_cast<std::size_t>(mentionPour(n))];
+case 6: carnet::afficherStatistiques(notes); break;
+case 7: carnet::appliquerBonus(notes, lireNote("Bonus : ")); break;
+default: break;
 }
-const double taille = static_cast<double>(notes.size());
-const double moyenne = somme / taille;
-double sommeEcarts{0.0};
-for (double n : notes) {
-sommeEcarts += (n - moyenne) * (n - moyenne);
-}
-
-//------------------------ 7. Affichage -----------------------
-
-const double ecartType = std::sqrt(sommeEcarts / taille);
-std::println("\nStatistiques — {} ({} étudiants)", ue, nb);
-std::println("{:‐<58}", "");
-std::println("{:<18}: {:6.2f}", "Note minimale", minimum);
-std::println("{:<18}: {:6.2f}", "Note maximale", maximum);
-std::println("{:<18}: {:6.2f}", "Moyenne", moyenne);
-std::println("{:<18}: {:6.2f}", "Écart‐type", ecartType);
-std::println("{:<18}: {:6} ({:.1f} %)", "Admis", admis, 100.0 * admis / taille);
-std::println("\nRépartition par mention");
-for (std::size_t i{0}; i < nbMentions; ++i) {
-const auto m = static_cast<Mention>(i);
-std::println("{:<12} {} ({})", libelle(m),
-std::string(static_cast<std::size_t>(repartition[i]), '*'), repartition[i]);
-}
+} while (choix != 0);
 }

@@ -1,0 +1,13 @@
+# ninja log v5
+18	1568	1795274141322301677	CMakeFiles/uincampus_core.dir/src/saisie1.cpp.o	b147aaea611b7fe3
+1	25	1795277323545382408	build.ninja	81d080cc2d05cb74
+2	675	1795275173931327874	CMakeFiles/uincampus_core.dir/src/calculs.cpp.o	75d8e9a3d8b8ce7
+2	3854	1794317703701434099	CMakeFiles/uin-campus.dir/app/main.cpp.o	8538c9f77e55518f
+1	1270	1795274471024310042	CMakeFiles/uincampus_core.dir/src/saisie.cpp.o	ae96eb1ddd104c51
+2	221	1794315393207711770	CMakeFiles/uincampus_core.dir/src/regles.cpp.o	5a6824aa4dd5d1fb
+2	227	1794317700078503573	CMakeFiles/uincampus_core.dir/src/version.cpp.o	ea98f9c68c5b24c1
+675	1083	1795275174338327884	libuincampus_core.a	398e6167fba2031a
+1083	1247	1795275174502327888	uin-campus	9f94365efe32c91b
+0	25	1795277323545382408	build.ninja	81d080cc2d05cb74
+1	3787	1795280667183467233	CMakeFiles/uin-campus.dir/app/main.cpp.o	8538c9f77e55518f
+3788	3914	1795280667313467236	uin-campus	9f94365efe32c91b
