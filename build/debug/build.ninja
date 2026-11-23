@@ -106,8 +106,8 @@ build libuincampus_core.a: CXX_STATIC_LIBRARY_LINKER__uincampus_core_Debug CMake
 
 build cmake_object_order_depends_target_uin-campus: phony || cmake_object_order_depends_target_uincampus_core
 
-build CMakeFiles/uin-campus.dir/app/main.cpp.o: CXX_COMPILER__uin-campus_unscanned_Debug /home/mariam/uin-campus/app/main.cpp || cmake_object_order_depends_target_uin-campus
-  DEP_FILE = CMakeFiles/uin-campus.dir/app/main.cpp.o.d
+build CMakeFiles/uin-campus.dir/app/main_aide.cpp.o: CXX_COMPILER__uin-campus_unscanned_Debug /home/mariam/uin-campus/app/main_aide.cpp || cmake_object_order_depends_target_uin-campus
+  DEP_FILE = CMakeFiles/uin-campus.dir/app/main_aide.cpp.o.d
   FLAGS = -g -std=gnu++23 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -fsanitize=address,undefined -fno-omit-frame-pointer
   INCLUDES = -I/home/mariam/uin-campus/include
   OBJECT_DIR = CMakeFiles/uin-campus.dir
@@ -121,7 +121,7 @@ build CMakeFiles/uin-campus.dir/app/main.cpp.o: CXX_COMPILER__uin-campus_unscann
 #############################################
 # Link the executable uin-campus
 
-build uin-campus: CXX_EXECUTABLE_LINKER__uin-campus_Debug CMakeFiles/uin-campus.dir/app/main.cpp.o | libuincampus_core.a || libuincampus_core.a
+build uin-campus: CXX_EXECUTABLE_LINKER__uin-campus_Debug CMakeFiles/uin-campus.dir/app/main_aide.cpp.o | libuincampus_core.a || libuincampus_core.a
   FLAGS = -g
   LINK_FLAGS = -fsanitize=address,undefined
   LINK_LIBRARIES = libuincampus_core.a

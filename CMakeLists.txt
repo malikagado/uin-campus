@@ -37,5 +37,5 @@ target_link_libraries(uincampus_core PRIVATE uincampus_options)
 # ---------------------------------------------------------------
 # Application
 # ---------------------------------------------------------------
-add_executable(uin-campus app/main.cpp)
+add_executable(uin-campus app/main_aide.cpp)
 target_link_libraries(uin-campus PRIVATE uincampus_core uincampus_options)
