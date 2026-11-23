@@ -15,4 +15,7 @@ int lireEntier(std::string_view invite, int min, int max);
 /// Lit une note valide ; accepte la virgule decimale.
 double lireNote(std::string_view invite);
 
+/// Lit une ligne non vide (espaces seuls refuses).
+std::string lireTexteNonVide(std::string_view invite);
+
 } // namespace uin

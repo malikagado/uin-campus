@@ -81,6 +81,30 @@ build CMakeFiles/uincampus_core.dir/src/calculs.cpp.o: CXX_COMPILER__uincampus_c
   OBJECT_DIR = CMakeFiles/uincampus_core.dir
   OBJECT_FILE_DIR = CMakeFiles/uincampus_core.dir/src
 
+build CMakeFiles/uincampus_core.dir/src/note.cpp.o: CXX_COMPILER__uincampus_core_unscanned_Debug /home/mariam/uin-campus/src/note.cpp || cmake_object_order_depends_target_uincampus_core
+  DEFINES = -DUIN_VERSION=\"0.1.0\"
+  DEP_FILE = CMakeFiles/uincampus_core.dir/src/note.cpp.o.d
+  FLAGS = -g -std=gnu++23 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -fsanitize=address,undefined -fno-omit-frame-pointer
+  INCLUDES = -I/home/mariam/uin-campus/include
+  OBJECT_DIR = CMakeFiles/uincampus_core.dir
+  OBJECT_FILE_DIR = CMakeFiles/uincampus_core.dir/src
+
+build CMakeFiles/uincampus_core.dir/src/ue.cpp.o: CXX_COMPILER__uincampus_core_unscanned_Debug /home/mariam/uin-campus/src/ue.cpp || cmake_object_order_depends_target_uincampus_core
+  DEFINES = -DUIN_VERSION=\"0.1.0\"
+  DEP_FILE = CMakeFiles/uincampus_core.dir/src/ue.cpp.o.d
+  FLAGS = -g -std=gnu++23 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -fsanitize=address,undefined -fno-omit-frame-pointer
+  INCLUDES = -I/home/mariam/uin-campus/include
+  OBJECT_DIR = CMakeFiles/uincampus_core.dir
+  OBJECT_FILE_DIR = CMakeFiles/uincampus_core.dir/src
+
+build CMakeFiles/uincampus_core.dir/src/etudiant.cpp.o: CXX_COMPILER__uincampus_core_unscanned_Debug /home/mariam/uin-campus/src/etudiant.cpp || cmake_object_order_depends_target_uincampus_core
+  DEFINES = -DUIN_VERSION=\"0.1.0\"
+  DEP_FILE = CMakeFiles/uincampus_core.dir/src/etudiant.cpp.o.d
+  FLAGS = -g -std=gnu++23 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -fsanitize=address,undefined -fno-omit-frame-pointer
+  INCLUDES = -I/home/mariam/uin-campus/include
+  OBJECT_DIR = CMakeFiles/uincampus_core.dir
+  OBJECT_FILE_DIR = CMakeFiles/uincampus_core.dir/src
+
 
 # =============================================================================
 # Link build statements for STATIC_LIBRARY target uincampus_core
@@ -89,7 +113,7 @@ build CMakeFiles/uincampus_core.dir/src/calculs.cpp.o: CXX_COMPILER__uincampus_c
 #############################################
 # Link the static library libuincampus_core.a
 
-build libuincampus_core.a: CXX_STATIC_LIBRARY_LINKER__uincampus_core_Debug CMakeFiles/uincampus_core.dir/src/version.cpp.o CMakeFiles/uincampus_core.dir/src/regles.cpp.o CMakeFiles/uincampus_core.dir/src/saisie.cpp.o CMakeFiles/uincampus_core.dir/src/calculs.cpp.o
+build libuincampus_core.a: CXX_STATIC_LIBRARY_LINKER__uincampus_core_Debug CMakeFiles/uincampus_core.dir/src/version.cpp.o CMakeFiles/uincampus_core.dir/src/regles.cpp.o CMakeFiles/uincampus_core.dir/src/saisie.cpp.o CMakeFiles/uincampus_core.dir/src/calculs.cpp.o CMakeFiles/uincampus_core.dir/src/note.cpp.o CMakeFiles/uincampus_core.dir/src/ue.cpp.o CMakeFiles/uincampus_core.dir/src/etudiant.cpp.o
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = CMakeFiles/uincampus_core.dir
   POST_BUILD = :
@@ -106,8 +130,8 @@ build libuincampus_core.a: CXX_STATIC_LIBRARY_LINKER__uincampus_core_Debug CMake
 
 build cmake_object_order_depends_target_uin-campus: phony || cmake_object_order_depends_target_uincampus_core
 
-build CMakeFiles/uin-campus.dir/app/main_aide.cpp.o: CXX_COMPILER__uin-campus_unscanned_Debug /home/mariam/uin-campus/app/main_aide.cpp || cmake_object_order_depends_target_uin-campus
-  DEP_FILE = CMakeFiles/uin-campus.dir/app/main_aide.cpp.o.d
+build CMakeFiles/uin-campus.dir/app/main_relever.cpp.o: CXX_COMPILER__uin-campus_unscanned_Debug /home/mariam/uin-campus/app/main_relever.cpp || cmake_object_order_depends_target_uin-campus
+  DEP_FILE = CMakeFiles/uin-campus.dir/app/main_relever.cpp.o.d
   FLAGS = -g -std=gnu++23 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -fsanitize=address,undefined -fno-omit-frame-pointer
   INCLUDES = -I/home/mariam/uin-campus/include
   OBJECT_DIR = CMakeFiles/uin-campus.dir
@@ -121,7 +145,7 @@ build CMakeFiles/uin-campus.dir/app/main_aide.cpp.o: CXX_COMPILER__uin-campus_un
 #############################################
 # Link the executable uin-campus
 
-build uin-campus: CXX_EXECUTABLE_LINKER__uin-campus_Debug CMakeFiles/uin-campus.dir/app/main_aide.cpp.o | libuincampus_core.a || libuincampus_core.a
+build uin-campus: CXX_EXECUTABLE_LINKER__uin-campus_Debug CMakeFiles/uin-campus.dir/app/main_relever.cpp.o | libuincampus_core.a || libuincampus_core.a
   FLAGS = -g
   LINK_FLAGS = -fsanitize=address,undefined
   LINK_LIBRARIES = libuincampus_core.a

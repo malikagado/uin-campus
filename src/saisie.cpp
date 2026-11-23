@@ -40,6 +40,18 @@ std::string lireLigne(std::string_view invite) {
 }
 } // namespace
 std::string lireTexte(std::string_view invite) { return lireLigne(invite); }
+std::string lireTexteNonVide(std::string_view invite)
+{
+while (std::cin) {
+std::string ligne = lireLigne(invite);
+if (ligne.find_first_not_of(" \t") != std::string::npos) {
+return ligne;
+}
+std::cout << " Ce champ est obligatoire.\n";
+}
+return {};
+// fin d'entrée : le constructeur appelant lèvera une exception
+}
 int lireEntier(std::string_view invite, int min, int max) {
   while (std::cin) {
     const auto [valide, valeur] = versEntier(lireLigne(invite));

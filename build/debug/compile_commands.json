@@ -25,8 +25,26 @@
 },
 {
   "directory": "/home/mariam/uin-campus/build/debug",
-  "command": "/usr/bin/c++ -I/home/mariam/uin-campus/include -g -std=gnu++23 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -fsanitize=address,undefined -fno-omit-frame-pointer -o CMakeFiles/uin-campus.dir/app/main_aide.cpp.o -c /home/mariam/uin-campus/app/main_aide.cpp",
-  "file": "/home/mariam/uin-campus/app/main_aide.cpp",
-  "output": "CMakeFiles/uin-campus.dir/app/main_aide.cpp.o"
+  "command": "/usr/bin/c++ -DUIN_VERSION=\\\"0.1.0\\\" -I/home/mariam/uin-campus/include -g -std=gnu++23 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -fsanitize=address,undefined -fno-omit-frame-pointer -o CMakeFiles/uincampus_core.dir/src/note.cpp.o -c /home/mariam/uin-campus/src/note.cpp",
+  "file": "/home/mariam/uin-campus/src/note.cpp",
+  "output": "CMakeFiles/uincampus_core.dir/src/note.cpp.o"
+},
+{
+  "directory": "/home/mariam/uin-campus/build/debug",
+  "command": "/usr/bin/c++ -DUIN_VERSION=\\\"0.1.0\\\" -I/home/mariam/uin-campus/include -g -std=gnu++23 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -fsanitize=address,undefined -fno-omit-frame-pointer -o CMakeFiles/uincampus_core.dir/src/ue.cpp.o -c /home/mariam/uin-campus/src/ue.cpp",
+  "file": "/home/mariam/uin-campus/src/ue.cpp",
+  "output": "CMakeFiles/uincampus_core.dir/src/ue.cpp.o"
+},
+{
+  "directory": "/home/mariam/uin-campus/build/debug",
+  "command": "/usr/bin/c++ -DUIN_VERSION=\\\"0.1.0\\\" -I/home/mariam/uin-campus/include -g -std=gnu++23 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -fsanitize=address,undefined -fno-omit-frame-pointer -o CMakeFiles/uincampus_core.dir/src/etudiant.cpp.o -c /home/mariam/uin-campus/src/etudiant.cpp",
+  "file": "/home/mariam/uin-campus/src/etudiant.cpp",
+  "output": "CMakeFiles/uincampus_core.dir/src/etudiant.cpp.o"
+},
+{
+  "directory": "/home/mariam/uin-campus/build/debug",
+  "command": "/usr/bin/c++ -I/home/mariam/uin-campus/include -g -std=gnu++23 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -fsanitize=address,undefined -fno-omit-frame-pointer -o CMakeFiles/uin-campus.dir/app/main_relever.cpp.o -c /home/mariam/uin-campus/app/main_relever.cpp",
+  "file": "/home/mariam/uin-campus/app/main_relever.cpp",
+  "output": "CMakeFiles/uin-campus.dir/app/main_relever.cpp.o"
 }
 ]

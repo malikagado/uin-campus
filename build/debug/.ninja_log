@@ -1,13 +1,20 @@
 # ninja log v5
+2	3744	1795451593343896637	CMakeFiles/uincampus_core.dir/src/etudiant.cpp.o	d31c0f58d7d9416b
 18	1568	1795274141322301677	CMakeFiles/uincampus_core.dir/src/saisie1.cpp.o	b147aaea611b7fe3
-1	28	1795448312082934294	build.ninja	81d080cc2d05cb74
-2	962	1795447557188728276	CMakeFiles/uincampus_core.dir/src/calculs.cpp.o	75d8e9a3d8b8ce7
+1	31	1795451753392725935	build.ninja	81d080cc2d05cb74
+2	1229	1795451310202034697	CMakeFiles/uincampus_core.dir/src/calculs.cpp.o	75d8e9a3d8b8ce7
 3	4462	1795447560686214959	CMakeFiles/uin-campus.dir/app/main.cpp.o	8538c9f77e55518f
-2	1803	1795447558029604863	CMakeFiles/uincampus_core.dir/src/saisie.cpp.o	ae96eb1ddd104c51
-2	515	1795447556741793872	CMakeFiles/uincampus_core.dir/src/regles.cpp.o	5a6824aa4dd5d1fb
+2	1629	1795451310602913519	CMakeFiles/uincampus_core.dir/src/saisie.cpp.o	ae96eb1ddd104c51
+2	434	1795451309408273897	CMakeFiles/uincampus_core.dir/src/regles.cpp.o	5a6824aa4dd5d1fb
 1	408	1795447556633809721	CMakeFiles/uincampus_core.dir/src/version.cpp.o	ea98f9c68c5b24c1
 1803	1870	1795447558096595031	libuincampus_core.a	398e6167fba2031a
-4462	4578	1795447560805197496	uin-campus	9f94365efe32c91b
-0	25	1795448312082934294	build.ninja	81d080cc2d05cb74
-2	3510	1795448513648351030	CMakeFiles/uin-campus.dir/app/main_aide.cpp.o	26272abdeda5ae74
+2	3507	1795451593106892326	CMakeFiles/uincampus_core.dir/src/UE.cpp.o	7fbd619b94437737
+3	3718	1795451312688280300	CMakeFiles/uincampus_core.dir/src/note.cpp.o	d23c861395d930cd
 3510	3640	1795448513781331513	uin-campus	7871df714bb9f78e
+2	3510	1795448513648351030	CMakeFiles/uin-campus.dir/app/main_aide.cpp.o	26272abdeda5ae74
+0	27	1795451753392725935	build.ninja	81d080cc2d05cb74
+1	3251	1795451756645783047	CMakeFiles/uincampus_core.dir/src/ue.cpp.o	d64360a9a6776ee
+2	1402	1795453137918468425	CMakeFiles/uincampus_core.dir/src/saisie.cpp.o	ae96eb1ddd104c51
+1	148	1795453531459549554	libuincampus_core.a	6998c882399bdde3
+2	3476	1795453786056246163	CMakeFiles/uin-campus.dir/app/main_relever.cpp.o	5ba27223ab976418
+3476	3655	1795453786237241728	uin-campus	ece25a61990ca0ae
