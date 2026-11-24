@@ -29,10 +29,7 @@ add_library(uincampus_core
 src/version.cpp
 src/regles.cpp
 src/saisie.cpp
-src/calculs.cpp
-src/note.cpp
-src/ue.cpp
-src/etudiant.cpp)
+src/calculs.cpp)
 
 target_include_directories(uincampus_core PUBLIC ${PROJECT_SOURCE_DIR}/include)
 target_compile_definitions(uincampus_core PRIVATE UIN_VERSION="${PROJECT_VERSION}")
@@ -40,5 +37,5 @@ target_link_libraries(uincampus_core PRIVATE uincampus_options)
 # ---------------------------------------------------------------
 # Application
 # ---------------------------------------------------------------
-add_executable(uin-campus app/main_relever.cpp)
+add_executable(uin-campus app/main_carnet.cpp)
 target_link_libraries(uin-campus PRIVATE uincampus_core uincampus_options)
